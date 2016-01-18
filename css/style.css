@@ -5,4 +5,14 @@ section {
   justify-content: space-between;
   align-items: center;
   align-content: center;
+  border: 2px black solid;
+}
+article {
+  height:300px;
+  weight:300px;
+
+}
+
+img {
+  border: 2px black solid;
 }
