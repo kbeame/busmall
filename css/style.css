@@ -1,8 +1,8 @@
 /* Style for index.html */
-.pick {
+section {
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
   align-content: center;
 }
