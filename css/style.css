@@ -2,7 +2,27 @@
 section {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
+  border: 2px black solid;
+  height: 450px;
+}
+article {
+  display: block;
+  height:100%;
+  width:450px;
+  background-color: black;
+}
+
+img {
+  border: 2px black solid;
+  height: 450px;
+}
+h1 {
+  font-family: Tahoma, sans-serif;
+  text-align: center;
+}
+p {
+  font-family: Tahoma, sans-serif;
 }
