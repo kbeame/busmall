@@ -194,13 +194,13 @@ function clickOnThird () {
 }
 
 //How to have the results button appear
-var results = function () {
-  while (globalClicks < 2) {
-    document.getElementById("resulting").hidden=true;
-    // var buttonResults = document.getElementById('results');
-    // // var hidden = buttonResults.getAttribute("hidden");
-    // hidden = true;
-  }
+// var results = function () {
+//   while (globalClicks < 2) {
+//     document.getElementById("resulting").hidden=true;
+//     // var buttonResults = document.getElementById('results');
+//     // // var hidden = buttonResults.getAttribute("hidden");
+//     // hidden = true;
+//   }
 }
 
 results();
