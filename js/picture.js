@@ -31,6 +31,11 @@ var Product = function (productName, filePath) {
   this.productName = productName;
   this.filePath = filePath;
   this.clicksRecieved = 0;
+
+  this.click = function () {
+    this.clicksRecieved += 1;
+    console.log(this.productName + ' now has ' + this.clicksRecieved + ' clicks');
+    }
 }
 
 var  createObject = function() {
@@ -82,9 +87,10 @@ imgOne.addEventListener('click', clickOnFirst);
 function clickOnFirst () {
   globalClicks += 1;
   console.log(globalClicks);
-//   // (imageObject[10].filePath).clicksRecieved += 1;
-//   // console.log((imageObject[10].filePath).clicksRecieved);
-//refresh the images
+
+  imageObject[randomValue1].click();
+  
+// refresh the images
   var randomValue1 = getRandomNum();
   var randomValue2 = getRandomNum();
   var randomValue3 = getRandomNum();
@@ -201,6 +207,6 @@ function clickOnThird () {
 //     // // var hidden = buttonResults.getAttribute("hidden");
 //     // hidden = true;
 //   }
-}
+// }
 
-results();
+// results();

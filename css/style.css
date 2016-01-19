@@ -19,3 +19,10 @@ img {
   border: 2px black solid;
   height: 450px;
 }
+h1 {
+  font-family: Tahoma, sans-serif;
+  text-align: center;
+}
+p {
+  font-family: Tahoma, sans-serif;
+}
