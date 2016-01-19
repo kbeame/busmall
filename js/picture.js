@@ -1,7 +1,5 @@
-//ajascript for random photo here
+
 //Constructor Function to Create Image objects
-var imgName = ['bag', 'banana', 'boots', 'chair', 'cthulhu', 'dragon', 'pen', 'scissors', 'shark', 'sweep', 'unicorn', 'usb','water-can','water-glass'];
-// var imgName = [bag, banana, boots, chair, cthulhu, dragon, pen, scissors, shark, sweep, unicorn, usb,'water-can","water-glass"];
 
 var images = [
   ['bag', 'img/bag.jpg'],
@@ -13,17 +11,19 @@ var images = [
   ['pen', 'img/pen.jpg'],
   ['scissors', 'img/scissors.jpg'],
   ['shark', 'img/shark.jpg'],
-  ['sweep', 'img/sweep.jpg'],
+  ['sweep', 'img/sweep.png'],
   ['unicorn', 'img/unicorn.jpg'],
   ['usb', 'img/usb.jpg'],
   ['water-can', 'img/water-can.jpg'],
-  ['water-glass', 'img/water-glass.jpg']
+  ['water-glass', 'img/wine-glass.jpg']
 ];
 
 var imageObject = [];
 
+var globalClicks = 0;
 
-var Product = function (productName, filePath) {
+
+var Product = function (productName, filePath, identify) {
   this.productName = productName;
   this.filePath = filePath;
   this.clicksRecieved = 0;
@@ -39,25 +39,30 @@ createObject();
 function getRandomNum() {
     return Math.floor(Math.random() * (images.length));
 }
-//render an image
-// function renderImageOne() {
-//     getRandomNum();
-//     createObject();
-//attach the selected random image to the image one tag
-//     var imgOne = document.getElementById('imgOne');
-//     var section = document.getElementsByClassName('pick')
-//     imgOne.textContent = imageObject[getRandomNum()][1];
-//     section.appendChild = (imgOne);
-//     document.appendChild =(section);
-// }
-//
-// renderImageOne();
+
+getRandomNum();
+// function firstSection () {
 
 var imgOne = document.getElementById('imgOne');
-// var img1 = document.createElement('img');
-imgOne.innerHTML = "<img src=" + images[1][1] + ">";
+imgOne.innerHTML = '<img src=' + imageObject[getRandomNum()][1] + '>';
+//create the rest of the images
+// var imgTwo = document.getElementById('imgTwo');
+// imgTwo.innerHTML = "<img src=" + images[getRandomNum()][1] + ">";
+//
+// var imgThree = document.getElementById('imgThree');
+// imgThree.innerHTML = "<img src=" + images[getRandomNum()][1] + ">";
 
 
 
-// img1.textContent = images[0][1];
-// imgOne.appendChild(img1);
+
+//create event listender
+// imgOne.addEventListener('click', clickOnFirst);
+
+
+//create an event handler
+// function clickOnFirst () {
+//   globalClicks += 1;
+//   console.log(globalClicks);
+//   imageObject[random][2].clicksRecieved += 1;
+//   console.log(imageObject[random][2].clicksRecieved)//how to get the array number of the item within the article instead of i
+// }

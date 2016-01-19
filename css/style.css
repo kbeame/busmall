@@ -2,17 +2,20 @@
 section {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   align-content: center;
   border: 2px black solid;
+  height: 450px;
 }
 article {
-  height:300px;
-  weight:300px;
-
+  display: block;
+  height:100%;
+  width:450px;
+  background-color: black;
 }
 
 img {
   border: 2px black solid;
+  height: 450px;
 }
