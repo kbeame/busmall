@@ -239,3 +239,35 @@ function resultsButton() {
         }
       }
   resultsButton();
+
+//render list function
+function  render() {
+  var tableEL = document.getElementById('dataTable');
+  var trEl = document.createElement('tr');
+  var tHeadEl = document.createElement('th');
+  tHeadEl.textContent = "Object";
+  trEl.appendChild(tHeadEl);
+  var thEl2 = document.createElement('th');
+  thEl2.textContent = "Percentage Clicked";
+  trEl.appendChild(thEl2);
+  tableEL.appendChild(trEl);
+
+    for (var i = 0; i < imageObject.length; i++) {
+      var trEl2 = document.createElement('tr');
+      trEl2.textContent = imageObject[i].productName;
+      tableEL.appendChild(trEl2);
+      var tdEl = document.createElement('td');
+      tdEl.textContent = imageObject[i].percentClicked + "%";
+      trEl2.appendChild(tdEl);
+  }
+}
+
+//add a listener to the button
+var makeChart = document.getElementById('resulting');
+makeChart.addEventListener('click', makeDataAppear);
+
+//event handler for resulting button
+function makeDataAppear(event) {
+  console.log(event);
+  render();
+}

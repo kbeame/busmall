@@ -82,3 +82,12 @@ body {
   align-items: center;
   align-content: center;
 }
+#dataTable {
+  padding: 1%;
+  margin: 1%;
+  border: 1px black solid;
+  text-align: center;
+}
+tr, td , th {
+  border: 1px black solid;
+}
