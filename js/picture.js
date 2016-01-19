@@ -1,4 +1,4 @@
-
+"use strict"
 //Constructor Function to Create Image objects
 
 var images = [
@@ -30,11 +30,15 @@ var randomValue3 = 0;
 var Product = function (productName, filePath) {
   this.productName = productName;
   this.filePath = filePath;
-  this.clicksRecieved = 0;
+  this.clicksReceived = 0;
+
+  // this.timesDisplayed= 0;
+  // this.percentClicked= 0;
+
 
   this.click = function () {
-    this.clicksRecieved += 1;
-    console.log(this.productName + ' now has ' + this.clicksRecieved + ' clicks');
+    this.clicksReceived += 1;
+    console.log(this.productName + ' now has ' + this.clicksReceived + ' clicks');
     }
 }
 
@@ -88,12 +92,15 @@ function clickOnFirst () {
   globalClicks += 1;
   console.log(globalClicks);
 
-  imageObject[randomValue1].click();
-  
+  // imageObject[randomValue1].click();
+  //OR
+  imageObject[randomValue1].clicksReceived += 1;
+  console.log("The " + imageObject[randomValue1].productName + " has been clicked " + imageObject[randomValue1].clicksReceived + " times");
+
 // refresh the images
-  var randomValue1 = getRandomNum();
-  var randomValue2 = getRandomNum();
-  var randomValue3 = getRandomNum();
+  randomValue1 = getRandomNum();
+  randomValue2 = getRandomNum();
+  randomValue3 = getRandomNum();
   do {
     randomValue1 = getRandomNum();
   }
@@ -131,7 +138,8 @@ imgTwo.addEventListener('click', clickOnSecond);
 //
 //
 // create an event handler
-function clickOnSecond () {
+function clickOnSecond (event) {
+  // console.log(event)
   globalClicks += 1;
   console.log(globalClicks);
 //   // (imageObject[10].filePath).clicksRecieved += 1;

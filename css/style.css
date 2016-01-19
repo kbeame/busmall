@@ -1,28 +1,63 @@
 /* Style for index.html */
-section {
+section.pick {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   align-content: center;
   border: 2px black solid;
-  height: 450px;
+  height: 30%;
+  margin: 1%;
+  background-color: purple;
 }
 article {
   display: block;
   height:100%;
-  width:450px;
-  background-color: black;
+  width:30%;
+  flex-flow: wrap;
+  /*background-color: black;*/
+  padding: 1%;
+  margin: 1%;
 }
 
 img {
+  width: 100%;
   border: 2px black solid;
-  height: 450px;
+  /*height: 450px;*/
+  border-radius: 15px;
 }
-h1 {
+h2 {
   font-family: Tahoma, sans-serif;
   text-align: center;
 }
 p {
   font-family: Tahoma, sans-serif;
+}
+#bus {
+  width: 60%;
+  height: 60%;
+  border-radius: 15px;
+  padding-right: 7%;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+h1.busmall {
+  font-family: fantasy;, sans-serif;
+  font-size: 400%;
+  color: red;
+  text-align: center;
+  margin: 2%;
+  padding-right: 7%;
+}
+section.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+
 }
