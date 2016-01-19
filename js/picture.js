@@ -125,7 +125,7 @@ function clickOnFirst () {
 
   var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
-
+  resultsButton();
 }
 
 
@@ -181,6 +181,7 @@ function clickOnSecond (event) {
   var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
 
+resultsButton();
 }
 //CREATE 3rd IMAGE HANDLER
 imgThree.addEventListener('click', clickOnThird);
@@ -226,17 +227,15 @@ function clickOnThird () {
 
   var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
-
+resultsButton();
 }
 
-//How to have the results button appear
-// var results = function () {
-//   while (globalClicks < 2) {
-//     document.getElementById("resulting").hidden=true;
-//     // var buttonResults = document.getElementById('results');
-//     // // var hidden = buttonResults.getAttribute("hidden");
-//     // hidden = true;
-//   }
-// }
-
-// results();
+// How to have the results button appear
+function resultsButton() {
+    if (globalClicks < 5) {
+        document.getElementById('resulting').style.visibility = 'hidden';
+        } else {
+        document.getElementById('resulting').style.visibility = 'visible';
+        }
+      }
+  resultsButton();

@@ -7,6 +7,7 @@ section.pick {
   justify-content: space-around;
   align-items: center;
   align-content: center;
+  width: 80%;
   height: 30%;
   margin: 1%;
   background-color: #281324;
@@ -39,6 +40,7 @@ p {
   height: 60%;
   border-radius: 15px;
   padding-right: 7%;
+  background-color: white;
   box-shadow:0px 0px 20px #281324;
 }
 header {
@@ -52,17 +54,31 @@ header {
 h1.busmall {
   font-family: fantasy;, sans-serif;
   font-size: 400%;
-  color: #7F7F7F;
+  color: #281324;
   text-align: center;
   margin: 2%;
   padding-right: 7%;
-  text-shadow: 3px 1px #281324;
+  text-shadow: 3px 1px #7F7F7F;
 }
 section.title {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-content: center;
-
-
+}
+#resulting {
+  font-size: 100%;
+  font-family: Tahoma, sans-serif;
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  border: 2px #281324 solid;
+  box-shadow:0px 0px 10px #281324;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
 }
