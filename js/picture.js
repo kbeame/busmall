@@ -31,14 +31,13 @@ var Product = function (productName, filePath) {
   this.productName = productName;
   this.filePath = filePath;
   this.clicksReceived = 0;
+  this.timesDisplayed= 0;
+  this.percentClicked= 0;
 
-  // this.timesDisplayed= 0;
-  // this.percentClicked= 0;
 
-
-  this.click = function () {
-    this.clicksReceived += 1;
-    console.log(this.productName + ' now has ' + this.clicksReceived + ' clicks');
+  this.createPercent = function () {
+    this.percentClicked =(this.clicksReceived/this.timesDisplayed)*100
+    console.log(this.productName + ' now has ' + this.percentClicked + ' percent');
     }
 }
 
@@ -91,12 +90,16 @@ imgOne.addEventListener('click', clickOnFirst);
 function clickOnFirst () {
   globalClicks += 1;
   console.log(globalClicks);
+  //see how often an image is displayed
+  imageObject[randomValue1].timesDisplayed += 1;
+  imageObject[randomValue2].timesDisplayed += 1;
+  imageObject[randomValue3].timesDisplayed += 1;
 
-  // imageObject[randomValue1].click();
-  //OR
+  //how many clicks per image object
   imageObject[randomValue1].clicksReceived += 1;
   console.log("The " + imageObject[randomValue1].productName + " has been clicked " + imageObject[randomValue1].clicksReceived + " times");
-
+//Percentage of times clicked
+  imageObject[randomValue1].createPercent();
 // refresh the images
   randomValue1 = getRandomNum();
   randomValue2 = getRandomNum();
@@ -142,12 +145,21 @@ function clickOnSecond (event) {
   // console.log(event)
   globalClicks += 1;
   console.log(globalClicks);
-//   // (imageObject[10].filePath).clicksRecieved += 1;
-//   // console.log((imageObject[10].filePath).clicksRecieved);
+
+  //see how often an image is displayed
+  imageObject[randomValue1].timesDisplayed += 1;
+  imageObject[randomValue2].timesDisplayed += 1;
+  imageObject[randomValue3].timesDisplayed += 1;
+
+  //how many clicks per image object
+  imageObject[randomValue2].clicksReceived += 1;
+  console.log("The " + imageObject[randomValue2].productName + " has been clicked " + imageObject[randomValue2].clicksReceived + " times");
+  //Percentage of times clicked
+  imageObject[randomValue2].createPercent();
 //refresh the images
-  var randomValue1 = getRandomNum();
-  var randomValue2 = getRandomNum();
-  var randomValue3 = getRandomNum();
+  randomValue1 = getRandomNum();
+  randomValue2 = getRandomNum();
+  randomValue3 = getRandomNum();
   do {
     randomValue1 = getRandomNum();
   }
@@ -178,12 +190,22 @@ imgThree.addEventListener('click', clickOnThird);
 function clickOnThird () {
   globalClicks += 1;
   console.log(globalClicks);
-//   // (imageObject[10].filePath).clicksRecieved += 1;
-//   // console.log((imageObject[10].filePath).clicksRecieved);
+  //see how often an image is displayed
+  imageObject[randomValue1].timesDisplayed += 1;
+  imageObject[randomValue2].timesDisplayed += 1;
+  imageObject[randomValue3].timesDisplayed += 1;
+
+
+  //how many clicks per image object
+  imageObject[randomValue3].clicksReceived += 1;
+  console.log("The " + imageObject[randomValue3].productName + " has been clicked " + imageObject[randomValue3].clicksReceived + " times");
+  //Percentage of times clicked
+  imageObject[randomValue3].createPercent();
+
 //refresh the images
-  var randomValue1 = getRandomNum();
-  var randomValue2 = getRandomNum();
-  var randomValue3 = getRandomNum();
+  randomValue1 = getRandomNum();
+  randomValue2 = getRandomNum();
+  randomValue3 = getRandomNum();
   do {
     randomValue1 = getRandomNum();
   }
