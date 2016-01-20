@@ -23,9 +23,9 @@ var imageObject = [];
 var globalClicks = 0;
 
 
-var randomValue1 = 0;
-var randomValue2 = 0;
-var randomValue3 = 0;
+// var randomValue1 = 0;
+// var randomValue2 = 0;
+// var randomValue3 = 0;
 
 var Product = function (productName, filePath) {
   this.productName = productName;
@@ -40,7 +40,7 @@ var Product = function (productName, filePath) {
     console.log(this.productName + ' now has ' + this.percentClicked + ' percent');
     }
 }
-
+//creates all of the objects and pushes them to the imageObject array
 var  createObject = function() {
   for (var i = 0; i < images.length; i++) {
     imageObject.push(new Product(images[i][0], images[i][1]));
@@ -51,13 +51,12 @@ createObject();
 function getRandomNum() {
     return Math.floor(Math.random() * (images.length));
 }
-
-
+//might want to move these to the top of the js file
 var randomValue1 = getRandomNum();
 var randomValue2 = getRandomNum();
 var randomValue3 = getRandomNum();
 
-var ensureRandom = function() {
+function ensureRandom ()  {
 do {
   randomValue1 = getRandomNum();
 }
@@ -68,28 +67,27 @@ do {
 }
 while(randomValue2 === randomValue3 || randomValue3 === randomValue1);
 }
+
 ensureRandom();
 
-console.log(imageObject[randomValue1].filePath);
-//
+// console.log(imageObject[randomValue1].filePath);
+//append the image to the articles
 var imgOne = document.getElementById('imgOne');
 imgOne.innerHTML = '<img src=' + imageObject[randomValue1].filePath + '>';
-// // // create the rest of the images
+
 var imgTwo = document.getElementById('imgTwo');
 imgTwo.innerHTML = "<img src=" + imageObject[randomValue2].filePath + ">";
 
 var imgThree = document.getElementById('imgThree');
 imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
-// //
-//
-// create event listender
+
+// create event listender for 1st click
 imgOne.addEventListener('click', clickOnFirst);
-//
-//
-// create an event handler
+
+// create an event handler for 1st click
 function clickOnFirst () {
   globalClicks += 1;
-  console.log(globalClicks);
+  // console.log(globalClicks);
   //see how often an image is displayed
   imageObject[randomValue1].timesDisplayed += 1;
   imageObject[randomValue2].timesDisplayed += 1;
@@ -104,27 +102,28 @@ function clickOnFirst () {
   randomValue1 = getRandomNum();
   randomValue2 = getRandomNum();
   randomValue3 = getRandomNum();
-  do {
-    randomValue1 = getRandomNum();
-  }
-  while(randomValue1 === randomValue2);
-
-  do {
-      randomValue3 = getRandomNum();
-  }
-  while(randomValue2 === randomValue3 || randomValue3 === randomValue1);
+  // do {
+  //   randomValue1 = getRandomNum();
+  // }
+  // while(randomValue1 === randomValue2);
+  //
+  // do {
+  //     randomValue3 = getRandomNum();
+  // }
+  // while(randomValue2 === randomValue3 || randomValue3 === randomValue1);
 
 
   ensureRandom();
 
-  var imgOne = document.getElementById('imgOne');
+  // var imgOne = document.getElementById('imgOne');
   imgOne.innerHTML = '<img src=' + imageObject[randomValue1].filePath + '>';
 
-  var imgTwo = document.getElementById('imgTwo');
+  // var imgTwo = document.getElementById('imgTwo');
   imgTwo.innerHTML = "<img src=" + imageObject[randomValue2].filePath + ">";
 
-  var imgThree = document.getElementById('imgThree');
+  // var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
+
   resultsButton();
 }
 
@@ -144,7 +143,7 @@ imgTwo.addEventListener('click', clickOnSecond);
 function clickOnSecond (event) {
   // console.log(event)
   globalClicks += 1;
-  console.log(globalClicks);
+  // console.log(globalClicks);
 
   //see how often an image is displayed
   imageObject[randomValue1].timesDisplayed += 1;
@@ -160,25 +159,25 @@ function clickOnSecond (event) {
   randomValue1 = getRandomNum();
   randomValue2 = getRandomNum();
   randomValue3 = getRandomNum();
-  do {
-    randomValue1 = getRandomNum();
-  }
-  while(randomValue1 === randomValue2);
-
-  do {
-      randomValue3 = getRandomNum();
-  }
-  while(randomValue2 === randomValue3 || randomValue3 === randomValue1);
+  // do {
+  //   randomValue1 = getRandomNum();
+  // }
+  // while(randomValue1 === randomValue2);
+  //
+  // do {
+  //     randomValue3 = getRandomNum();
+  // }
+  // while(randomValue2 === randomValue3 || randomValue3 === randomValue1);
 
   ensureRandom();
 
-  var imgOne = document.getElementById('imgOne');
+  // var imgOne = document.getElementById('imgOne');
   imgOne.innerHTML = '<img src=' + imageObject[randomValue1].filePath + '>';
 
-  var imgTwo = document.getElementById('imgTwo');
+  // var imgTwo = document.getElementById('imgTwo');
   imgTwo.innerHTML = "<img src=" + imageObject[randomValue2].filePath + ">";
 
-  var imgThree = document.getElementById('imgThree');
+  // var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
 
 resultsButton();
@@ -190,7 +189,7 @@ imgThree.addEventListener('click', clickOnThird);
 // create an event handler
 function clickOnThird () {
   globalClicks += 1;
-  console.log(globalClicks);
+  // console.log(globalClicks);
   //see how often an image is displayed
   imageObject[randomValue1].timesDisplayed += 1;
   imageObject[randomValue2].timesDisplayed += 1;
@@ -205,26 +204,27 @@ function clickOnThird () {
   randomValue1 = getRandomNum();
   randomValue2 = getRandomNum();
   randomValue3 = getRandomNum();
-  do {
-    randomValue1 = getRandomNum();
-  }
-  while(randomValue1 === randomValue2);
-
-  do {
-      randomValue3 = getRandomNum();
-  }
-  while(randomValue2 === randomValue3 || randomValue3 === randomValue1);
+  // do {
+  //   randomValue1 = getRandomNum();
+  // }
+  // while(randomValue1 === randomValue2);
+  //
+  // do {
+  //     randomValue3 = getRandomNum();
+  // }
+  // while(randomValue2 === randomValue3 || randomValue3 === randomValue1);
 
   ensureRandom();
 
-  var imgOne = document.getElementById('imgOne');
+  // var imgOne = document.getElementById('imgOne');
   imgOne.innerHTML = '<img src=' + imageObject[randomValue1].filePath + '>';
 
-  var imgTwo = document.getElementById('imgTwo');
+  // var imgTwo = document.getElementById('imgTwo');
   imgTwo.innerHTML = "<img src=" + imageObject[randomValue2].filePath + ">";
 
-  var imgThree = document.getElementById('imgThree');
+  // var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
+
 resultsButton();
 }
 
@@ -236,6 +236,7 @@ function resultsButton() {
         document.getElementById('resulting').style.visibility = 'visible';
         }
       }
+
   resultsButton();
 
 //render list function
@@ -282,6 +283,7 @@ var data = {
 
     ]
 };
+
 function populateChart () {
   for (var i = 0; i < imageObject.length; i++) {
      data.datasets[0].data.push(imageObject[i].percentClicked);
