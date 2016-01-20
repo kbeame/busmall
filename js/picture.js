@@ -241,7 +241,7 @@ function resultsButton() {
   resultsButton();
 
 //render list function
-function  render() {
+function  renderTable() {
   var tableEL = document.getElementById('dataTable');
   var trEl = document.createElement('tr');
   var tHeadEl = document.createElement('th');
@@ -267,7 +267,35 @@ var makeChart = document.getElementById('resulting');
 makeChart.addEventListener('click', makeDataAppear);
 
 //event handler for resulting button
+
+var chartFun = document.getElementById("chartFun").getContext("2d");
+
+
+var data = {
+    labels: ["Bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "sweep", "unicorn", "usb", "water-can", "water-glass"],
+    datasets: [
+        {
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: []
+        }
+
+    ]
+};
+function populateChart () {
+  for (var i = 0; i < imageObject.length; i++) {
+     data.datasets[0].data.push(imageObject[i].percentClicked);
+  }
+}
+
+
+
+
 function makeDataAppear(event) {
   console.log(event);
-  render();
+  renderTable();
+  populateChart();
+  chartFun = new Chart(chartFun).Bar(data);
 }
