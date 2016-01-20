@@ -1,12 +1,7 @@
 "use strict"
 //Constructor Function to Create Image objects
 var images = [['bag', 'img/bag.jpg'],['banana', 'img/banana.jpg'],['boots', 'img/boots.jpg'],['chair', 'img/chair.jpg'],['cthulhu', 'img/cthulhu.jpg'],['dragon', 'img/dragon.jpg'],['pen', 'img/pen.jpg'],['scissors', 'img/scissors.jpg'],
-['shark', 'img/shark.jpg'],
-['sweep', 'img/sweep.png'],
-['unicorn', 'img/unicorn.jpg'],
-['usb', 'img/usb.jpg'],
-['water-can', 'img/water-can.jpg'],
-['water-glass', 'img/wine-glass.jpg']
+['shark', 'img/shark.jpg'],['sweep', 'img/sweep.png'],['unicorn', 'img/unicorn.jpg'],['usb', 'img/usb.jpg'],['water-can', 'img/water-can.jpg'],['water-glass', 'img/wine-glass.jpg']
 ];
 
 var imageObject = [];
