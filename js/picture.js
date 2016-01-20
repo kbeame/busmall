@@ -144,7 +144,7 @@ function populateChart () {
      data.labels[i] = (imageObject[i].productName);
   }
 }
-
+//button handler
 function makeDataAppear(event) {
   populateChart();
   new Chart(chartFun).Bar(data);
