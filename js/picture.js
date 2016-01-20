@@ -195,8 +195,6 @@ function clickOnThird () {
   imageObject[randomValue1].timesDisplayed += 1;
   imageObject[randomValue2].timesDisplayed += 1;
   imageObject[randomValue3].timesDisplayed += 1;
-
-
   //how many clicks per image object
   imageObject[randomValue3].clicksReceived += 1;
   console.log("The " + imageObject[randomValue3].productName + " has been clicked " + imageObject[randomValue3].clicksReceived + " times");
@@ -241,26 +239,26 @@ function resultsButton() {
   resultsButton();
 
 //render list function
-function  renderTable() {
-  var tableEL = document.getElementById('dataTable');
-  var trEl = document.createElement('tr');
-  var tHeadEl = document.createElement('th');
-  tHeadEl.textContent = "Object";
-  trEl.appendChild(tHeadEl);
-  var thEl2 = document.createElement('th');
-  thEl2.textContent = "Percentage Clicked";
-  trEl.appendChild(thEl2);
-  tableEL.appendChild(trEl);
-
-    for (var i = 0; i < imageObject.length; i++) {
-      var trEl2 = document.createElement('tr');
-      trEl2.textContent = imageObject[i].productName;
-      tableEL.appendChild(trEl2);
-      var tdEl = document.createElement('td');
-      tdEl.textContent = imageObject[i].percentClicked + "%";
-      trEl2.appendChild(tdEl);
-  }
-}
+// function  renderTable() {
+//   var tableEL = document.getElementById('dataTable');
+//   var trEl = document.createElement('tr');
+//   var tHeadEl = document.createElement('th');
+//   tHeadEl.textContent = "Object";
+//   trEl.appendChild(tHeadEl);
+//   var thEl2 = document.createElement('th');
+//   thEl2.textContent = "Percentage Clicked";
+//   trEl.appendChild(thEl2);
+//   tableEL.appendChild(trEl);
+//
+//     for (var i = 0; i < imageObject.length; i++) {
+//       var trEl2 = document.createElement('tr');
+//       trEl2.textContent = imageObject[i].productName;
+//       tableEL.appendChild(trEl2);
+//       var tdEl = document.createElement('td');
+//       tdEl.textContent = imageObject[i].percentClicked + "%";
+//       trEl2.appendChild(tdEl);
+//   }
+// }
 
 //add a listener to the button
 var makeChart = document.getElementById('resulting');
@@ -291,11 +289,9 @@ function populateChart () {
 }
 
 
-
-
 function makeDataAppear(event) {
   console.log(event);
-  renderTable();
+  // renderTable();
   populateChart();
   chartFun = new Chart(chartFun).Bar(data);
 }
