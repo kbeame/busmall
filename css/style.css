@@ -1,28 +1,93 @@
 /* Style for index.html */
-section {
+
+
+section.pick {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   align-content: center;
-  border: 2px black solid;
-  height: 450px;
+  width: 80%;
+  height: 30%;
+  margin: 1%;
+  background-color: #281324;
 }
 article {
   display: block;
   height:100%;
-  width:450px;
-  background-color: black;
+  width:33%;
+  flex-flow: wrap;
+  /*background-color: black;*/
+  padding: 1%;
+  margin: 1%;
 }
 
 img {
-  border: 2px black solid;
-  height: 450px;
+  box-shadow:0px 0px 10px #7F7F7F;
+  width: 100%;
+  /*height: 450px;*/
+  border-radius: 15px;
 }
-h1 {
+h2 {
   font-family: Tahoma, sans-serif;
   text-align: center;
 }
 p {
   font-family: Tahoma, sans-serif;
+}
+#bus {
+  width: 60%;
+  height: 60%;
+  border-radius: 15px;
+  padding-right: 7%;
+  background-color: white;
+  box-shadow:0px 0px 20px #281324;
+}
+header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  background-image: url("https://allaboutthehouseblog.files.wordpress.com/2014/02/aath-horizontal-stripes-grey.jpg");
+}
+h1.busmall {
+  font-family: fantasy;, sans-serif;
+  font-size: 400%;
+  color: #281324;
+  text-align: center;
+  margin: 2%;
+  padding-right: 7%;
+  text-shadow: 3px 1px #7F7F7F;
+}
+section.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-content: center;
+}
+#resulting {
+  font-size: 100%;
+  font-family: Tahoma, sans-serif;
+  color: black;
+  background-color: white;
+  border-radius: 15px;
+  border: 2px #281324 solid;
+  box-shadow:0px 0px 10px #281324;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+}
+#dataTable {
+  padding: 1%;
+  margin: 1%;
+  border: 1px black solid;
+  text-align: center;
+}
+tr, td , th {
+  border: 1px black solid;
 }

@@ -3,10 +3,15 @@
   <head>
     <title>BusMall Marketing Research App</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
+    <!-- <script src="chart/chart.js"></script> -->
   </head>
   <body>
     <header>
-      <h1>How to Play</h1>
+      <section class="title">
+      <h1 class="busmall">BusMall</h1>
+      <img id="bus" src="img/Bus_Icon.png" alt="Bus Icon" />
+      </section>
+      <h2>How to Play</h2>
       <p>
         A set of three images will appear in the boxes below. Please click on one of the three images, keeping in mind that that image should be the product image that you will
         be most likely to buy.
@@ -26,7 +31,12 @@
       </article>
 
     </section>
-    <!-- <button id="resulting" type="button">Results</button> -->
+    <button id="resulting" type="button">Results</button>
+    <section class="view">
+      <table id='dataTable'></table>
+      <canvas id="chartFun" width="600" height="400"></canvas>
+    </section>
+    <script src="chart/chart.js"></script>
     <script type="text/javascript" src="js/picture.js">
     </script>
   </body>

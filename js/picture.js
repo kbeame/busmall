@@ -1,4 +1,4 @@
-
+"use strict"
 //Constructor Function to Create Image objects
 
 var images = [
@@ -30,11 +30,14 @@ var randomValue3 = 0;
 var Product = function (productName, filePath) {
   this.productName = productName;
   this.filePath = filePath;
-  this.clicksRecieved = 0;
+  this.clicksReceived = 0;
+  this.timesDisplayed= 0;
+  this.percentClicked= 0;
 
-  this.click = function () {
-    this.clicksRecieved += 1;
-    console.log(this.productName + ' now has ' + this.clicksRecieved + ' clicks');
+
+  this.createPercent = function () {
+    this.percentClicked =(this.clicksReceived/this.timesDisplayed)*100
+    console.log(this.productName + ' now has ' + this.percentClicked + ' percent');
     }
 }
 
@@ -87,13 +90,20 @@ imgOne.addEventListener('click', clickOnFirst);
 function clickOnFirst () {
   globalClicks += 1;
   console.log(globalClicks);
+  //see how often an image is displayed
+  imageObject[randomValue1].timesDisplayed += 1;
+  imageObject[randomValue2].timesDisplayed += 1;
+  imageObject[randomValue3].timesDisplayed += 1;
 
-  imageObject[randomValue1].click();
-  
+  //how many clicks per image object
+  imageObject[randomValue1].clicksReceived += 1;
+  console.log("The " + imageObject[randomValue1].productName + " has been clicked " + imageObject[randomValue1].clicksReceived + " times");
+//Percentage of times clicked
+  imageObject[randomValue1].createPercent();
 // refresh the images
-  var randomValue1 = getRandomNum();
-  var randomValue2 = getRandomNum();
-  var randomValue3 = getRandomNum();
+  randomValue1 = getRandomNum();
+  randomValue2 = getRandomNum();
+  randomValue3 = getRandomNum();
   do {
     randomValue1 = getRandomNum();
   }
@@ -115,7 +125,7 @@ function clickOnFirst () {
 
   var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
-
+  resultsButton();
 }
 
 
@@ -131,15 +141,25 @@ imgTwo.addEventListener('click', clickOnSecond);
 //
 //
 // create an event handler
-function clickOnSecond () {
+function clickOnSecond (event) {
+  // console.log(event)
   globalClicks += 1;
   console.log(globalClicks);
-//   // (imageObject[10].filePath).clicksRecieved += 1;
-//   // console.log((imageObject[10].filePath).clicksRecieved);
+
+  //see how often an image is displayed
+  imageObject[randomValue1].timesDisplayed += 1;
+  imageObject[randomValue2].timesDisplayed += 1;
+  imageObject[randomValue3].timesDisplayed += 1;
+
+  //how many clicks per image object
+  imageObject[randomValue2].clicksReceived += 1;
+  console.log("The " + imageObject[randomValue2].productName + " has been clicked " + imageObject[randomValue2].clicksReceived + " times");
+  //Percentage of times clicked
+  imageObject[randomValue2].createPercent();
 //refresh the images
-  var randomValue1 = getRandomNum();
-  var randomValue2 = getRandomNum();
-  var randomValue3 = getRandomNum();
+  randomValue1 = getRandomNum();
+  randomValue2 = getRandomNum();
+  randomValue3 = getRandomNum();
   do {
     randomValue1 = getRandomNum();
   }
@@ -161,6 +181,7 @@ function clickOnSecond () {
   var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
 
+resultsButton();
 }
 //CREATE 3rd IMAGE HANDLER
 imgThree.addEventListener('click', clickOnThird);
@@ -170,12 +191,20 @@ imgThree.addEventListener('click', clickOnThird);
 function clickOnThird () {
   globalClicks += 1;
   console.log(globalClicks);
-//   // (imageObject[10].filePath).clicksRecieved += 1;
-//   // console.log((imageObject[10].filePath).clicksRecieved);
+  //see how often an image is displayed
+  imageObject[randomValue1].timesDisplayed += 1;
+  imageObject[randomValue2].timesDisplayed += 1;
+  imageObject[randomValue3].timesDisplayed += 1;
+  //how many clicks per image object
+  imageObject[randomValue3].clicksReceived += 1;
+  console.log("The " + imageObject[randomValue3].productName + " has been clicked " + imageObject[randomValue3].clicksReceived + " times");
+  //Percentage of times clicked
+  imageObject[randomValue3].createPercent();
+
 //refresh the images
-  var randomValue1 = getRandomNum();
-  var randomValue2 = getRandomNum();
-  var randomValue3 = getRandomNum();
+  randomValue1 = getRandomNum();
+  randomValue2 = getRandomNum();
+  randomValue3 = getRandomNum();
   do {
     randomValue1 = getRandomNum();
   }
@@ -196,17 +225,73 @@ function clickOnThird () {
 
   var imgThree = document.getElementById('imgThree');
   imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
-
+resultsButton();
 }
 
-//How to have the results button appear
-// var results = function () {
-//   while (globalClicks < 2) {
-//     document.getElementById("resulting").hidden=true;
-//     // var buttonResults = document.getElementById('results');
-//     // // var hidden = buttonResults.getAttribute("hidden");
-//     // hidden = true;
+// How to have the results button appear
+function resultsButton() {
+    if (globalClicks < 5) {
+        document.getElementById('resulting').style.visibility = 'hidden';
+        } else {
+        document.getElementById('resulting').style.visibility = 'visible';
+        }
+      }
+  resultsButton();
+
+//render list function
+// function  renderTable() {
+//   var tableEL = document.getElementById('dataTable');
+//   var trEl = document.createElement('tr');
+//   var tHeadEl = document.createElement('th');
+//   tHeadEl.textContent = "Object";
+//   trEl.appendChild(tHeadEl);
+//   var thEl2 = document.createElement('th');
+//   thEl2.textContent = "Percentage Clicked";
+//   trEl.appendChild(thEl2);
+//   tableEL.appendChild(trEl);
+//
+//     for (var i = 0; i < imageObject.length; i++) {
+//       var trEl2 = document.createElement('tr');
+//       trEl2.textContent = imageObject[i].productName;
+//       tableEL.appendChild(trEl2);
+//       var tdEl = document.createElement('td');
+//       tdEl.textContent = imageObject[i].percentClicked + "%";
+//       trEl2.appendChild(tdEl);
 //   }
 // }
 
-// results();
+//add a listener to the button
+var makeChart = document.getElementById('resulting');
+makeChart.addEventListener('click', makeDataAppear);
+
+//event handler for resulting button
+
+var chartFun = document.getElementById("chartFun").getContext("2d");
+
+
+var data = {
+    labels: ["Bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "sweep", "unicorn", "usb", "water-can", "water-glass"],
+    datasets: [
+        {
+            fillColor: "rgba(220,220,220,0.5)",
+            strokeColor: "rgba(220,220,220,0.8)",
+            highlightFill: "rgba(220,220,220,0.75)",
+            highlightStroke: "rgba(220,220,220,1)",
+            data: []
+        }
+
+    ]
+};
+function populateChart () {
+  for (var i = 0; i < imageObject.length; i++) {
+     data.datasets[0].data.push(imageObject[i].percentClicked);
+  }
+}
+
+
+function makeDataAppear(event) {
+  console.log(event);
+  // renderTable();
+  populateChart();
+  chartFun = new Chart(chartFun).Bar(data);
+}
