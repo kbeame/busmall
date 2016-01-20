@@ -1,4 +1,4 @@
-"use strict"
+'use strict';
 //Constructor Function to Create Image objects
 var images = [['bag', 'img/bag.jpg'],['banana', 'img/banana.jpg'],['boots', 'img/boots.jpg'],['chair', 'img/chair.jpg'],['cthulhu', 'img/cthulhu.jpg'],['dragon', 'img/dragon.jpg'],['pen', 'img/pen.jpg'],['scissors', 'img/scissors.jpg'],
 ['shark', 'img/shark.jpg'],['sweep', 'img/sweep.png'],['unicorn', 'img/unicorn.jpg'],['usb', 'img/usb.jpg'],['water-can', 'img/water-can.jpg'],['water-glass', 'img/wine-glass.jpg']
@@ -12,12 +12,12 @@ var Product = function (productName, filePath) {
   this.productName = productName;
   this.filePath = filePath;
   this.clicksReceived = 0;
-  this.timesDisplayed= 0;
-  this.percentClicked= 0;
+  this.timesDisplayed = 0;
+  this.percentClicked = 0;
   this.createPercent = function () {
     this.percentClicked =(this.clicksReceived/this.timesDisplayed)*100;
-    }
-}
+  };
+};
 //creates all of the objects and pushes them to the imageObject array
 function createObject() {
   for (var i = 0; i < images.length; i++) {
@@ -27,20 +27,20 @@ function createObject() {
 createObject();
 // create a random number
 function getRandomNum() {
-    return Math.floor(Math.random() * (images.length));
+  return Math.floor(Math.random() * (images.length));
 }
 
 function ensureRandom ()  {
   randomValue1 = getRandomNum();
   randomValue2 = getRandomNum();
   randomValue3 = getRandomNum();
-    while (randomValue1 === randomValue2) {
-        randomValue2 = getRandomNum();
-        }
-    while (randomValue3 === randomValue2 || randomValue3 === randomValue1) {
-        randomValue3 = getRandomNum();
-        }
+  while (randomValue1 === randomValue2) {
+    randomValue2 = getRandomNum();
   }
+  while (randomValue3 === randomValue2 || randomValue3 === randomValue1) {
+    randomValue3 = getRandomNum();
+  }
+}
 
 ensureRandom();
 //append the image to the articles
@@ -51,9 +51,9 @@ appendToImage ();
 
 function appendToImage () {
   imgOne.innerHTML = '<img src=' + imageObject[randomValue1].filePath + '>';
-  imgTwo.innerHTML = "<img src=" + imageObject[randomValue2].filePath + ">";
-  imgThree.innerHTML = "<img src=" + imageObject[randomValue3].filePath + ">";
-  }
+  imgTwo.innerHTML = '<img src=' + imageObject[randomValue2].filePath + '>';
+  imgThree.innerHTML = '<img src=' + imageObject[randomValue3].filePath + '>';
+}
 
 // create event listender for 1st click
 imgOne.addEventListener('click', clickOnFirst);
@@ -113,35 +113,35 @@ function clickOnThird () {
 }
 // How to have the results button appear
 function resultsButton() {
-    if (globalClicks < 5) {
-        document.getElementById('resulting').style.visibility = 'hidden';
-        } else {
-        document.getElementById('resulting').style.visibility = 'visible';
-        }
-      }
+  if (globalClicks < 5) {
+    document.getElementById('resulting').style.visibility = 'hidden';
+  } else {
+    document.getElementById('resulting').style.visibility = 'visible';
+  }
+}
 
-  resultsButton();
+resultsButton();
 //add a listener to the button
 var makeChart = document.getElementById('resulting');
 makeChart.addEventListener('click', makeDataAppear);
 //event handler for resulting button
-var chartFun = document.getElementById("chartFun").getContext("2d");
+var chartFun = document.getElementById('chartFun').getContext('2d');
 
 var data = {
-    labels: [],
-    datasets: [
-        {
-            fillColor: "rgba(40,19,36,0.5)",
-            strokeColor: "rgba(255,255,255,0.8)",
-            data: []
-        }
-    ]
+  labels: [],
+  datasets: [
+    {
+      fillColor: 'rgba(40,19,36,0.5)',
+      strokeColor: 'rgba(255,255,255,0.8)',
+      data: []
+    }
+  ]
 };
 
 function populateChart () {
   for (var i = 0; i < imageObject.length; i++) {
-     data.datasets[0].data[i] = (imageObject[i].percentClicked);
-     data.labels[i] = (imageObject[i].productName);
+    data.datasets[0].data[i] = (imageObject[i].percentClicked);
+    data.labels[i] = (imageObject[i].productName);
   }
 }
 //button handler
