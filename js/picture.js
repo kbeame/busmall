@@ -274,10 +274,10 @@ var data = {
     labels: ["Bag", "banana", "boots", "chair", "cthulhu", "dragon", "pen", "scissors", "shark", "sweep", "unicorn", "usb", "water-can", "water-glass"],
     datasets: [
         {
-            fillColor: "rgba(220,220,220,0.5)",
-            strokeColor: "rgba(220,220,220,0.8)",
-            highlightFill: "rgba(220,220,220,0.75)",
-            highlightStroke: "rgba(220,220,220,1)",
+            fillColor: "rgb(40,19,36,0.5)",
+            strokeColor: "rgba(255,255,255,0.8)",
+            // highlightFill: "rgba(220,220,220,0.75)",
+            // highlightStroke: "rgba(220,220,220,1)",
             data: []
         }
 
@@ -285,15 +285,16 @@ var data = {
 };
 
 function populateChart () {
+  // data.datasets[0].data = []; //is this correct? must test this!
   for (var i = 0; i < imageObject.length; i++) {
-     data.datasets[0].data.push(imageObject[i].percentClicked);
+     data.datasets[0].data[i] = (imageObject[i].percentClicked);
   }
 }
 
 
 function makeDataAppear(event) {
-  console.log(event);
+  // console.log(event);
   // renderTable();
   populateChart();
-  chartFun = new Chart(chartFun).Bar(data);
+  new Chart(chartFun).Bar(data);
 }
