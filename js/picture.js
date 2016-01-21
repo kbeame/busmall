@@ -72,6 +72,7 @@ function clickOnFirst () {
   ensureRandom();
   appendToImage ();
   resultsButton();
+  destroyButton();
 }
 ////SECOND EVENT handler
 // create event listener
@@ -91,6 +92,7 @@ function clickOnSecond (event) {
   ensureRandom();
   appendToImage ();
   resultsButton();
+  destroyButton();
 }
 //CREATE 3rd IMAGE HANDLER
 // create event listener
@@ -110,6 +112,7 @@ function clickOnThird () {
   ensureRandom();
   appendToImage ();
   resultsButton();
+  destroyButton();
 }
 // How to have the results button appear
 function resultsButton() {
@@ -119,6 +122,15 @@ function resultsButton() {
     document.getElementById('resulting').style.visibility = 'visible';
   }
 }
+
+function destroyButton() {
+  if (globalClicks < 5) {
+    document.getElementById('destroy').style.visibility = 'hidden';
+  } else {
+    document.getElementById('destroy').style.visibility = 'visible';
+  }
+}
+destroyButton();
 
 resultsButton();
 //add a listener to the button
